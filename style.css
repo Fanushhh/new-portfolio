@@ -83,6 +83,46 @@ nav a:hover::after {
     width: 100%;
 }
 
+/* CV Download Link Styles */
+.cv-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--primary-color) !important;
+    color: white !important;
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+    border: 2px solid var(--primary-color) !important;
+    transition: all 0.3s ease !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+}
+
+.cv-link:hover {
+    background: transparent !important;
+    color: var(--primary-color) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px var(--primary-alpha-30) !important;
+}
+
+.cv-link::after {
+    display: none !important;
+}
+
+.cv-link i {
+    font-size: 0.9rem;
+}
+
+.cv-link.mobile {
+    justify-content: center;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.cv-link.mobile span {
+    font-size: 1rem;
+}
+
 .burger {
     display: none; /* Hidden by default, shown on mobile */
     cursor: pointer;
