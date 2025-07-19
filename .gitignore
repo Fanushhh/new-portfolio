@@ -1,0 +1,29 @@
+# Personal files not for public repository
+index-2.html
+cv data.txt
+EMAIL_SETUP_INSTRUCTIONS.md
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Local environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Claude Code settings
+.claude/settings.local.json
