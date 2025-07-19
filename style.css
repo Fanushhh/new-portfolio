@@ -1,5 +1,5 @@
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background: var(--bg-primary);
     color: var(--text-primary);
     margin: 0;
@@ -9,6 +9,18 @@ body {
     align-items: center;
     min-height: 100vh;
     overflow-x: hidden;
+}
+
+/* Apply Montserrat to all headings */
+h1, h2, h3, h4, h5, h6,
+.hero-title,
+.hero-subtitle,
+.timeline-content h3,
+.timeline-content h4,
+.project-overlay h3,
+.contact-info h3,
+.learning-item h3 {
+    font-family: 'Montserrat', sans-serif;
 }
 
 .container {
@@ -54,6 +66,7 @@ nav .nav-links li {
 nav a {
     color: var(--text-accent);
     text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     position: relative;
     transition: all 0.3s ease;
@@ -410,6 +423,7 @@ h2 {
     padding: 16px 32px;
     text-decoration: none;
     border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 1rem;
     transition: all 0.3s ease;
