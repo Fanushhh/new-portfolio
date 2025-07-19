@@ -46,6 +46,165 @@ function renderProjects() {
     });
 }
 
+// Render projects for mobile carousel
+function renderCarousel() {
+    const carouselTrack = document.getElementById('carousel-track');
+    const dotsContainer = document.getElementById('carousel-dots');
+    
+    if (!carouselTrack || !dotsContainer) return;
+    
+    carouselTrack.innerHTML = '';
+    dotsContainer.innerHTML = '';
+    
+    // Update total slides count
+    totalSlides = projectDetails.length;
+    
+    projectDetails.forEach((project, index) => {
+        // Create project card for carousel
+        const projectCard = document.createElement('div');
+        projectCard.className = 'project-card';
+        
+        const imagePath = project.img.startsWith('./') ? project.img.substring(2) : project.img;
+        
+        projectCard.innerHTML = `
+            <img src="${imagePath}" alt="${project.name} Image" onerror="this.src='https://picsum.photos/600/400?random=${Math.floor(Math.random() * 1000)}'">
+            <div class="project-overlay">
+                <h3>${project.name}</h3>
+                <p>${project.description}</p>
+                <div class="tech-stack">
+                    <strong>Tech Stack:</strong> ${project.tech.join(', ')}
+                </div>
+                <div class="project-links">
+                    <a href="${project.url}" target="_blank" rel="noopener noreferrer" class="btn">
+                        <i class="fas fa-globe"></i> Live Demo
+                    </a>
+                    <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="btn">
+                        <i class="fab fa-github"></i> GitHub Repo
+                    </a>
+                </div>
+            </div>
+        `;
+        
+        carouselTrack.appendChild(projectCard);
+        
+        // Create dot for each project
+        const dot = document.createElement('div');
+        dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+    
+    // Reset to first slide and update carousel
+    currentSlide = 0;
+    updateCarousel();
+}
+
+// Carousel functionality
+let currentSlide = 0;
+let totalSlides = 0;
+
+function updateCarousel() {
+    const carouselTrack = document.getElementById('carousel-track');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    
+    if (!carouselTrack) return;
+    
+    console.log('Updating carousel:', { currentSlide, totalSlides }); // Debug log
+    
+    const translateX = -currentSlide * 100;
+    carouselTrack.style.transform = `translateX(${translateX}%)`;
+    
+    // Update dots
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+    });
+    
+    // Update button states
+    if (prevBtn && nextBtn) {
+        prevBtn.disabled = currentSlide === 0;
+        nextBtn.disabled = currentSlide === totalSlides - 1;
+    }
+}
+
+function goToSlide(slideIndex) {
+    currentSlide = slideIndex;
+    updateCarousel();
+}
+
+function nextSlide() {
+    if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updateCarousel();
+    }
+}
+
+function prevSlide() {
+    if (currentSlide > 0) {
+        currentSlide--;
+        updateCarousel();
+    }
+}
+
+// Initialize carousel controls
+function initCarousel() {
+    const nextBtn = document.getElementById('next-btn');
+    const prevBtn = document.getElementById('prev-btn');
+    
+    console.log('Initializing carousel controls:', { nextBtn, prevBtn }); // Debug log
+    
+    if (nextBtn && prevBtn) {
+        // Remove existing listeners first
+        nextBtn.removeEventListener('click', nextSlide);
+        prevBtn.removeEventListener('click', prevSlide);
+        
+        // Add new listeners
+        nextBtn.addEventListener('click', (e) => {
+            console.log('Next button clicked'); // Debug log
+            nextSlide();
+        });
+        prevBtn.addEventListener('click', (e) => {
+            console.log('Prev button clicked'); // Debug log
+            prevSlide();
+        });
+        
+        // Touch/swipe support
+        let startX = 0;
+        let currentX = 0;
+        let isDragging = false;
+        
+        const carouselTrack = document.getElementById('carousel-track');
+        
+        if (carouselTrack) {
+            carouselTrack.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            });
+            
+            carouselTrack.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                currentX = e.touches[0].clientX;
+            });
+            
+            carouselTrack.addEventListener('touchend', () => {
+                if (!isDragging) return;
+                
+                const diff = startX - currentX;
+                const threshold = 50;
+                
+                if (diff > threshold) {
+                    nextSlide();
+                } else if (diff < -threshold) {
+                    prevSlide();
+                }
+                
+                isDragging = false;
+            });
+        }
+    }
+}
+
 // Smooth scroll effect for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -78,6 +237,12 @@ const observer = new IntersectionObserver((entries) => {
 document.addEventListener('DOMContentLoaded', () => {
     // Render projects first
     renderProjects();
+    
+    // Render carousel
+    renderCarousel();
+    
+    // Initialize carousel controls
+    initCarousel();
     
     const elementsToAnimate = document.querySelectorAll('section, .project-card');
     elementsToAnimate.forEach(el => {
