@@ -1,0 +1,472 @@
+/* =================================
+   PORTFOLIO TEMPLATE THEME SYSTEM
+   ================================= */
+
+:root {
+  /* =================================
+     PRIMARY COLOR SYSTEM
+     ================================= */
+  
+  /* Main accent color (default: dark-orange theme) */
+ --primary-color: #f97316;
+  --primary-light: #fb923c;
+  --primary-lighter: #fdba74;
+  --primary-dark: #ea580c;
+  --primary-darker: #c2410c;
+  
+  /* =================================
+     BACKGROUND COLOR SYSTEM
+     ================================= */
+  
+  /* Main background colors (replace with your preferred dark theme) */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #000000;
+  
+  /* =================================
+     TEXT COLOR SYSTEM
+     ================================= */
+  
+  /* Main text colors */
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --text-accent: #ffffff;
+  
+  /* =================================
+     TRANSPARENCY VARIATIONS
+     ================================= */
+  
+  /* Primary color with opacity (dynamically generated from --primary-color) */
+  --primary-alpha-10: color-mix(in srgb, var(--primary-color) 10%, transparent);
+  --primary-alpha-20: color-mix(in srgb, var(--primary-color) 20%, transparent);
+  --primary-alpha-30: color-mix(in srgb, var(--primary-color) 30%, transparent);
+  --primary-alpha-40: color-mix(in srgb, var(--primary-color) 40%, transparent);
+  --primary-alpha-50: color-mix(in srgb, var(--primary-color) 50%, transparent);
+  --primary-alpha-60: color-mix(in srgb, var(--primary-color) 60%, transparent);
+  --primary-alpha-70: color-mix(in srgb, var(--primary-color) 70%, transparent);
+  --primary-alpha-80: color-mix(in srgb, var(--primary-color) 80%, transparent);
+  --primary-alpha-85: color-mix(in srgb, var(--primary-color) 85%, transparent);
+  --primary-alpha-90: color-mix(in srgb, var(--primary-color) 90%, transparent);
+  --primary-alpha-95: color-mix(in srgb, var(--primary-color) 95%, transparent);
+  
+  /* Background with opacity */
+  --bg-alpha-03: rgba(0, 0, 0, 0.03);
+  --bg-alpha-05: rgba(0, 0, 0, 0.05);
+  --bg-alpha-10: rgba(0, 0, 0, 0.1);
+  --bg-alpha-30: rgba(0, 0, 0, 0.3);
+  --bg-alpha-80: rgba(0, 0, 0, 0.8);
+  --bg-alpha-90: rgba(0, 0, 0, 0.9);
+  --bg-alpha-95: rgba(0, 0, 0, 0.95);
+  
+  /* White with opacity */
+  --white-alpha-03: rgba(255, 255, 255, 0.03);
+  --white-alpha-05: rgba(255, 255, 255, 0.05);
+  --white-alpha-10: rgba(255, 255, 255, 0.1);
+  --white-alpha-20: rgba(255, 255, 255, 0.2);
+  
+  /* =================================
+     GRADIENT SYSTEMS
+     ================================= */
+  
+  /* Primary gradients */
+  --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+  --gradient-primary-hover: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+  
+  /* Background gradients */
+  --gradient-bg: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 25%, var(--bg-primary) 50%, var(--bg-secondary) 75%, var(--bg-tertiary) 100%);
+  
+  /* Project overlay gradients */
+  --gradient-overlay: linear-gradient(135deg, var(--primary-alpha-90) 0%, var(--primary-alpha-85) 100%);
+  
+  /* Timeline gradient */
+  --gradient-timeline: linear-gradient(180deg, var(--primary-color) 0%, var(--primary-light) 50%, var(--primary-lighter) 100%);
+  
+  /* =================================
+     SHADOW SYSTEMS
+     ================================= */
+  
+  /* Primary color shadows */
+  --shadow-primary-sm: 0 4px 20px var(--primary-alpha-30);
+  --shadow-primary-md: 0 8px 30px var(--primary-alpha-50);
+  --shadow-primary-lg: 0 20px 40px var(--primary-alpha-30);
+  --shadow-primary-xl: 0 30px 60px var(--primary-alpha-40);
+  
+  /* Dark shadows */
+  --shadow-dark-sm: 0 8px 32px var(--bg-alpha-30);
+  --shadow-dark-md: 0 20px 40px var(--bg-alpha-30);
+}
+
+/* =================================
+   THEME DEFINITIONS
+   ================================= */
+
+/* Dark Violet Theme */
+[data-theme="dark-violet"] {
+  --primary-color: #8b45ff;
+  --primary-light: #a66eff;
+  --primary-lighter: #c197ff;
+  --primary-dark: #6d35cc;
+  --primary-darker: #4f2699;
+  
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #000000;
+  
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --text-accent: #ffffff;
+}
+
+/* Dark Orange Theme */
+[data-theme="dark-orange"] {
+  --primary-color: #f97316;
+  --primary-light: #fb923c;
+  --primary-lighter: #fdba74;
+  --primary-dark: #ea580c;
+  --primary-darker: #c2410c;
+  
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #000000;
+  
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --text-accent: #ffffff;
+}
+
+/* Light Theme */
+[data-theme="light"] {
+  --primary-color: #3b82f6;
+  --primary-light: #60a5fa;
+  --primary-lighter: #93c5fd;
+  --primary-dark: #2563eb;
+  --primary-darker: #1d4ed8;
+  
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-accent: #000000;
+  
+  /* Override background alphas for light theme */
+  --bg-alpha-03: rgba(0, 0, 0, 0.03);
+  --bg-alpha-05: rgba(0, 0, 0, 0.05);
+  --bg-alpha-10: rgba(0, 0, 0, 0.1);
+  --bg-alpha-30: rgba(0, 0, 0, 0.1);
+  --bg-alpha-80: rgba(255, 255, 255, 0.8);
+  --bg-alpha-90: rgba(255, 255, 255, 0.9);
+  --bg-alpha-95: rgba(255, 255, 255, 0.95);
+  
+  /* Override white alphas for light theme */
+  --white-alpha-03: rgba(0, 0, 0, 0.03);
+  --white-alpha-05: rgba(0, 0, 0, 0.05);
+  --white-alpha-10: rgba(0, 0, 0, 0.1);
+  --white-alpha-20: rgba(0, 0, 0, 0.15);
+}
+
+/* Override project overlay text colors for light theme - use white text for better contrast */
+[data-theme="light"] .project-overlay {
+  color: #ffffff;
+}
+
+[data-theme="light"] .project-overlay h3 {
+  color: #ffffff;
+}
+
+[data-theme="light"] .project-overlay p {
+  color: #ffffff;
+}
+
+[data-theme="light"] .tech-stack {
+  text-shadow: none;
+  color: #ffffff;
+}
+
+[data-theme="light"] .tech-stack strong {
+  text-shadow: none;
+  color: #ffffff;
+}
+
+[data-theme="light"] .project-links .btn {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+[data-theme="light"] .project-links .btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* Override button text color to white in light theme */
+[data-theme="light"] .btn {
+  color: #ffffff;
+}
+
+/* =================================
+   THEME SWITCHER STYLES (Slider Design)
+   ================================= */
+
+.theme-switcher {
+  position: relative;
+  display: inline-block;
+}
+
+.theme-slider-container {
+  position: relative;
+}
+
+.theme-slider {
+  position: relative;
+  width: 120px;
+  height: 40px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--white-alpha-10);
+  border-radius: 20px;
+  padding: 4px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.slider-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+
+.slider-thumb {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 2px 8px var(--primary-alpha-30);
+  z-index: 2;
+}
+
+.theme-options {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.theme-option {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-option:hover {
+  transform: scale(1.1);
+}
+
+.theme-option.active {
+  transform: scale(1.2);
+}
+
+.theme-preview {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.theme-option.active .theme-preview {
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.theme-preview.violet {
+  background: linear-gradient(135deg, #8b45ff 0%, #a66eff 100%);
+}
+
+.theme-preview.orange {
+  background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+}
+
+.theme-preview.light {
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+}
+
+/* Slider thumb positions for each theme */
+.theme-slider[data-active="dark-violet"] .slider-thumb {
+  left: 2px;
+}
+
+.theme-slider[data-active="dark-orange"] .slider-thumb {
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.theme-slider[data-active="light"] .slider-thumb {
+  right: 2px;
+  left: auto;
+}
+
+/* Mobile theme switcher */
+.theme-switcher.mobile {
+  width: 100%;
+  padding: 12px 16px;
+}
+
+.mobile-theme-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary);
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.theme-switcher.mobile .theme-slider {
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.theme-switcher.mobile .theme-slider[data-active="dark-orange"] .slider-thumb {
+  left: calc(50% - 15px);
+  transform: translateY(-50%);
+}
+
+.theme-switcher.mobile .theme-slider[data-active="light"] .slider-thumb {
+  right: 2px;
+  left: auto;
+  transform: translateY(-50%);
+}
+
+/* =================================
+   ALTERNATIVE THEME EXAMPLES
+   ================================= */
+
+/* 
+  BLUE THEME EXAMPLE:
+  Copy and paste this into :root to use blue theme
+  
+  --primary-color: #3b82f6;
+  --primary-light: #60a5fa;
+  --primary-lighter: #93c5fd;
+  --primary-dark: #2563eb;
+  --primary-darker: #1d4ed8;
+  
+  Alpha colors will automatically update via color-mix:
+  --primary-alpha-10 through --primary-alpha-95 (no manual update needed)
+*/
+
+/* 
+  GREEN THEME EXAMPLE:
+  Copy and paste this into :root to use green theme
+  
+  --primary-color: #10b981;
+  --primary-light: #34d399;
+  --primary-lighter: #6ee7b7;
+  --primary-dark: #059669;
+  --primary-darker: #047857;
+  
+  Alpha colors will automatically update via color-mix:
+  --primary-alpha-10 through --primary-alpha-95 (no manual update needed)
+*/
+
+/* 
+  RED THEME EXAMPLE:
+  Copy and paste this into :root to use red theme
+  
+  --primary-color: #ef4444;
+  --primary-light: #f87171;
+  --primary-lighter: #fca5a5;
+  --primary-dark: #dc2626;
+  --primary-darker: #b91c1c;
+  
+  Alpha colors will automatically update via color-mix:
+  --primary-alpha-10 through --primary-alpha-95 (no manual update needed)
+*/
+
+/* 
+  PURPLE/VIOLET THEME EXAMPLE (Original):
+  Copy and paste this into :root to use purple theme
+  
+  --primary-color: #8b45ff;
+  --primary-light: #a66eff;
+  --primary-lighter: #c197ff;
+  --primary-dark: #6d35cc;
+  --primary-darker: #4f2699;
+  
+  Alpha colors will automatically update via color-mix:
+  --primary-alpha-10 through --primary-alpha-95 (no manual update needed)
+*/
+
+/* 
+  ORANGE THEME EXAMPLE:
+  Copy and paste this into :root to use orange theme
+  
+  --primary-color: #f97316;
+  --primary-light: #fb923c;
+  --primary-lighter: #fdba74;
+  --primary-dark: #ea580c;
+  --primary-darker: #c2410c;
+  
+  Alpha colors will automatically update via color-mix:
+  --primary-alpha-10 through --primary-alpha-95 (no manual update needed)
+*/
+
+/* 
+  PINK THEME EXAMPLE:
+  Copy and paste this into :root to use pink theme
+  
+  --primary-color: #ec4899;
+  --primary-light: #f472b6;
+  --primary-lighter: #f9a8d4;
+  --primary-dark: #db2777;
+  --primary-darker: #be185d;
+  
+  Alpha colors will automatically update via color-mix:
+  --primary-alpha-10 through --primary-alpha-95 (no manual update needed)
+*/
+
+/* 
+  CYAN THEME EXAMPLE:
+  Copy and paste this into :root to use cyan theme
+  
+  --primary-color: #06b6d4;
+  --primary-light: #22d3ee;
+  --primary-lighter: #67e8f9;
+  --primary-dark: #0891b2;
+  --primary-darker: #0e7490;
+  
+  Alpha colors will automatically update via color-mix:
+  --primary-alpha-10 through --primary-alpha-95 (no manual update needed)
+*/
+
+/* 
+  LIGHT THEME EXAMPLE:
+  Copy and paste this into :root to use light theme
+  
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-accent: #000000;
+*/

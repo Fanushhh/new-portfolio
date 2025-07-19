@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <div class="theme-switcher">
+                        <div class="theme-slider-container">
+                            <div class="theme-slider">
+                                <div class="slider-track">
+                                    <div class="slider-thumb"></div>
+                                </div>
+                                <div class="theme-options">
+                                    <div class="theme-option" data-theme="dark-violet" title="Dark Violet">
+                                        <div class="theme-preview violet"></div>
+                                    </div>
+                                    <div class="theme-option" data-theme="dark-orange" title="Dark Orange">
+                                        <div class="theme-preview orange"></div>
+                                    </div>
+                                    <div class="theme-option" data-theme="light" title="Light">
+                                        <div class="theme-preview light"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+        <div class="mobile-menu">
+            <div class="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <div class="theme-switcher mobile">
+                        <div class="mobile-theme-label">
+                            <i class="fas fa-palette"></i>
+                            <span>Theme</span>
+                        </div>
+                        <div class="theme-slider-container">
+                            <div class="theme-slider">
+                                <div class="slider-track">
+                                    <div class="slider-thumb"></div>
+                                </div>
+                                <div class="theme-options">
+                                    <div class="theme-option" data-theme="dark-violet" title="Dark Violet">
+                                        <div class="theme-preview violet"></div>
+                                    </div>
+                                    <div class="theme-option" data-theme="dark-orange" title="Dark Orange">
+                                        <div class="theme-preview orange"></div>
+                                    </div>
+                                    <div class="theme-option" data-theme="light" title="Light">
+                                        <div class="theme-preview light"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+        <main>
+            <section id="hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">Hi, I'm Fanush Gabriel</h1>
+                        <p class="hero-subtitle">Front-End Developer</p>
+                        <p class="hero-location">📍 Bucharest, Romania • Available for remote work</p>
+                        <p class="hero-description">With over 2 years of experience, I specialize in creating modern and responsive web applications using the latest technologies. I'm passionate about building beautiful and user-friendly interfaces.</p>
+                        <div class="hero-actions">
+                            <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                            <div class="social-links">
+                                <a href="https://github.com/Fanushhh" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="https://www.linkedin.com/in/fanush-mihailescu/" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-linkedin"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-container">
+                        <img src="https://picsum.photos/300/300" alt="Placeholder for my photo">
+                    </div>
+                </div>
+            </section>
+
+            <section id="about">
+                <div class="section-content">
+                    <h2>About Me</h2>
+                    <div class="about-content">
+                        <p>My journey into web development started purely out of curiosity. I was amazed by the websites and applications I saw online and was driven to learn how they were made. Two years later, I still enjoy every second of it. While it can be overwhelming at times, the feeling of figuring out how things work behind the scenes and putting them into practice is incredibly rewarding.</p>
+                        <p>I believe every project must have the end-user in mind, and I always focus on making sure the user gets exactly what they need as quickly as possible. To achieve this, I use a wide range of technologies. On the front-end, I'm proficient with HTML, CSS, and vanilla JavaScript, along with frameworks like React and Next.js. I have experience with various styling solutions, including Tailwind CSS, SASS, styled-components, and Bootstrap. On the back-end, I'm experienced with Node.js and databases like MongoDB, PostgreSQL, and Redis.</p>
+                        <p>I'm a firm believer in continuous learning. To deepen my understanding of core principles and data structures, I'm currently taking Harvard's CS50 course. My goals for this year are to become proficient in TypeScript and to start learning both automated and manual testing to ensure the quality and reliability of my work.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="currently-learning">
+                <div class="section-content">
+                    <h2>Currently Learning</h2>
+                    <div class="learning-content">
+                        <div class="learning-grid">
+                            <div class="learning-item">
+                                <div class="learning-icon">🎓</div>
+                                <h3>Harvard CS50</h3>
+                                <p>Deepening my understanding of computer science fundamentals, algorithms, and data structures</p>
+                            </div>
+                            <div class="learning-item">
+                                <div class="learning-icon">⚡</div>
+                                <h3>TypeScript</h3>
+                                <p>Becoming proficient in TypeScript to write more robust and maintainable code</p>
+                            </div>
+                            <div class="learning-item">
+                                <div class="learning-icon">🧪</div>
+                                <h3>Testing</h3>
+                                <p>Learning automated and manual testing to ensure quality and reliability of my work</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience">
+                <div class="section-content">
+                    <h2>Experience</h2>
+                    <div class="timeline">
+                        <div class="timeline-item" data-year="2023">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Front-End Developer</h3>
+                                <h4>HP Inc.</h4>
+                                <p class="timeline-date">April 2023 - Present</p>
+                                <p>Implemented websites, landing pages, web applications, and emails from concept through deployment. Assessed UX and UI designs for technical feasibility and collaborated with product team members to implement new feature developments. Standardized all output with a new, responsive, mobile-first approach and strategy.</p>
+                                <div class="timeline-skills">
+                                    <span>JavaScript</span>
+                                    <span>jQuery</span>
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+                                    <span>Bootstrap</span>
+                                    <span>Sass</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-year="2022">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Front-End Developer</h3>
+                                <h4>Frontend Mentor Freelance</h4>
+                                <p class="timeline-date">May 2022 - April 2023</p>
+                                <p>Worked on different projects using real-life workflow with designs for both mobile and desktop. Learned form validation, DOM manipulation, creating visually appealing designs, making API calls, and experimenting with different frameworks like Sass and React instead of vanilla technologies.</p>
+                                <div class="timeline-skills">
+                                    <span>React</span>
+                                    <span>JavaScript</span>
+                                    <span>Sass</span>
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+                                    <span>Git</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-year="2021">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Frontend Developer (Part-time)</h3>
+                                <h4>Ned Com SRL</h4>
+                                <p class="timeline-date">December 2021 - April 2022</p>
+                                <p>Maintained and developed new features for the company's website. Worked on making the website more responsive and visually appealing, provided support for accessibility and SEO, and updated the website with new content according to client's portfolio and needs.</p>
+                                <div class="timeline-skills">
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+                                    <span>JavaScript</span>
+                                    <span>SEO</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects">
+                <div class="section-content">
+                    <h2>Projects</h2>
+                    <div class="projects-layout">
+                        <div class="featured-project" id="featured-project">
+                            <!-- Featured project will be rendered here -->
+                        </div>
+                        <div class="projects-grid" id="projects-grid">
+                            <!-- Remaining projects will be rendered here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <div class="section-content">
+                    <h2>Contact Me</h2>
+                    <div class="contact-container">
+                        <div class="contact-info">
+                            <h3>Let's Connect</h3>
+                            <p>Ready to bring your ideas to life? I'd love to hear from you!</p>
+                            <div class="contact-details">
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>fgabriel.mihailescu@gmail.com</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+40 123 456 789</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Bucharest, Romania</span>
+                                </div>
+                            </div>
+                        </div>
+                        <form id="contactForm" class="modern-form">
+                            <div class="form-group">
+                                <input type="text" name="name" id="name" required>
+                                <label for="name">Your Name</label>
+                                <span class="focus-border"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" id="email" required>
+                                <label for="email">Your Email</label>
+                                <span class="focus-border"></span>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" id="message" required></textarea>
+                                <label for="message">Your Message</label>
+                                <span class="focus-border"></span>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <span class="btn-text">Send Message</span>
+                                <span class="btn-loader">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="email-config.js"></script>
+    <script type="module" src="data.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
