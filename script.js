@@ -37,6 +37,9 @@ function renderProjects() {
             </div>
         `;
         
+        // Add tap/click event to show overlay on mobile
+        addProjectCardInteraction(projectCard);
+        
         // First project goes to featured section, rest to grid
         if (index === 0) {
             featuredContainer.appendChild(projectCard);
@@ -87,6 +90,9 @@ function renderCarousel() {
         
         carouselTrack.appendChild(projectCard);
         
+        // Add tap/click event to show overlay on mobile
+        addProjectCardInteraction(projectCard);
+        
         // Create dot for each project
         const dot = document.createElement('div');
         dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
@@ -97,6 +103,83 @@ function renderCarousel() {
     // Reset to first slide and update carousel
     currentSlide = 0;
     updateCarousel();
+}
+
+// Project card interaction for mobile
+function addProjectCardInteraction(projectCard) {
+    let tapTimeout;
+    let isOverlayVisible = false;
+    
+    projectCard.addEventListener('touchstart', (e) => {
+        // Clear any existing timeout
+        if (tapTimeout) {
+            clearTimeout(tapTimeout);
+        }
+        
+        // Don't interfere with links and buttons
+        if (e.target.closest('a, button, .btn')) {
+            return;
+        }
+        
+        // Set a timeout to show overlay after a brief delay
+        tapTimeout = setTimeout(() => {
+            // Toggle overlay visibility
+            if (isOverlayVisible) {
+                projectCard.classList.remove('active');
+                isOverlayVisible = false;
+            } else {
+                // Hide other active cards first
+                document.querySelectorAll('.project-card.active').forEach(card => {
+                    card.classList.remove('active');
+                });
+                
+                projectCard.classList.add('active');
+                isOverlayVisible = true;
+            }
+        }, 150); // Short delay to distinguish from swipe
+    });
+    
+    projectCard.addEventListener('touchend', (e) => {
+        // Don't interfere with links and buttons
+        if (e.target.closest('a, button, .btn')) {
+            return;
+        }
+        
+        // If touch ended quickly, it might be a tap
+        // The timeout will handle showing the overlay
+    });
+    
+    projectCard.addEventListener('touchmove', (e) => {
+        // If user is moving (swiping), cancel the tap timeout
+        if (tapTimeout) {
+            clearTimeout(tapTimeout);
+            tapTimeout = null;
+        }
+    });
+    
+    // Also add click support for desktop
+    projectCard.addEventListener('click', (e) => {
+        // Don't interfere with links and buttons
+        if (e.target.closest('a, button, .btn')) {
+            return;
+        }
+        
+        // On desktop, just toggle the overlay
+        if (window.innerWidth <= 768) { // Only on mobile-sized screens
+            if (isOverlayVisible) {
+                projectCard.classList.remove('active');
+                isOverlayVisible = false;
+            } else {
+                // Hide other active cards first
+                document.querySelectorAll('.project-card.active').forEach(card => {
+                    card.classList.remove('active');
+                });
+                
+                projectCard.classList.add('active');
+                isOverlayVisible = true;
+            }
+        }
+    });
 }
 
 // Carousel functionality
@@ -171,32 +254,68 @@ function initCarousel() {
         
         // Touch/swipe support
         let startX = 0;
+        let startY = 0;
         let currentX = 0;
+        let currentY = 0;
         let isDragging = false;
+        let startTime = 0;
         
         const carouselTrack = document.getElementById('carousel-track');
         
         if (carouselTrack) {
             carouselTrack.addEventListener('touchstart', (e) => {
+                // Don't trigger swipe on interactive elements
+                if (e.target.closest('a, button, .btn')) {
+                    return;
+                }
+                
                 startX = e.touches[0].clientX;
-                isDragging = true;
+                startY = e.touches[0].clientY;
+                startTime = Date.now();
+                isDragging = false; // Start as false, only set to true when actually moving
             });
             
             carouselTrack.addEventListener('touchmove', (e) => {
-                if (!isDragging) return;
+                // Don't trigger swipe on interactive elements
+                if (e.target.closest('a, button, .btn')) {
+                    return;
+                }
+                
                 currentX = e.touches[0].clientX;
+                currentY = e.touches[0].clientY;
+                
+                const deltaX = Math.abs(currentX - startX);
+                const deltaY = Math.abs(currentY - startY);
+                
+                // Only start dragging if horizontal movement is greater than vertical
+                // and movement is significant enough
+                if (deltaX > 10 && deltaX > deltaY) {
+                    isDragging = true;
+                    // Prevent default only when we're actually swiping
+                    e.preventDefault();
+                }
             });
             
-            carouselTrack.addEventListener('touchend', () => {
+            carouselTrack.addEventListener('touchend', (e) => {
+                // Don't trigger swipe on interactive elements
+                if (e.target.closest('a, button, .btn')) {
+                    return;
+                }
+                
                 if (!isDragging) return;
                 
                 const diff = startX - currentX;
+                const timeDiff = Date.now() - startTime;
                 const threshold = 50;
+                const maxTime = 300; // Maximum time for a swipe gesture
                 
-                if (diff > threshold) {
-                    nextSlide();
-                } else if (diff < -threshold) {
-                    prevSlide();
+                // Only trigger swipe if it's a quick gesture and movement is significant
+                if (timeDiff < maxTime && Math.abs(diff) > threshold) {
+                    if (diff > threshold) {
+                        nextSlide();
+                    } else if (diff < -threshold) {
+                        prevSlide();
+                    }
                 }
                 
                 isDragging = false;
@@ -279,6 +398,27 @@ document.addEventListener('DOMContentLoaded', () => {
             observer.observe(card);
         });
     }, 100);
+    
+    // Add global click handler to close overlays when clicking outside
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) { // Only on mobile
+            if (!e.target.closest('.project-card')) {
+                document.querySelectorAll('.project-card.active').forEach(card => {
+                    card.classList.remove('active');
+                });
+            }
+        }
+    });
+    
+    document.addEventListener('touchstart', (e) => {
+        if (window.innerWidth <= 768) { // Only on mobile
+            if (!e.target.closest('.project-card')) {
+                document.querySelectorAll('.project-card.active').forEach(card => {
+                    card.classList.remove('active');
+                });
+            }
+        }
+    });
 });
 
 // Custom Cursor

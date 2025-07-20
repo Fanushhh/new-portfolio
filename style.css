@@ -76,7 +76,6 @@ nav a {
 
 nav a:hover {
     color: var(--primary-color);
-    background: var(--primary-alpha-10);
     transform: translateY(-2px);
 }
 
@@ -659,7 +658,8 @@ h2 {
     overflow: hidden;
 }
 
-.project-card:hover .project-overlay {
+.project-card:hover .project-overlay,
+.project-card.active .project-overlay {
     opacity: 1;
     transform: translateY(0);
     clip-path: circle(100% at 50% 50%);
@@ -682,7 +682,10 @@ h2 {
 
 .project-card:hover .project-overlay h3,
 .project-card:hover .project-overlay p,
-.project-card:hover .project-overlay .project-links {
+.project-card:hover .project-overlay .project-links,
+.project-card.active .project-overlay h3,
+.project-card.active .project-overlay p,
+.project-card.active .project-overlay .project-links {
     transform: translateY(0);
 }
 
