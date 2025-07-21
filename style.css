@@ -489,12 +489,14 @@ h2 {
 
 .hero-image img {
     width: 400px;
-    max-width: 100%;
+    max-width: 80vw;
     height: 400px;
-    object-fit: cover; 
+    max-height: 80vw;
+    object-fit: cover;
     border-radius: 50%;
     transition: transform 0.3s ease;
     animation: profileFloat 6s ease-in-out infinite;
+    aspect-ratio: 1 / 1;
 }
 
 @keyframes profileFloat {
@@ -1211,7 +1213,9 @@ h2 {
     .hero-image img {
         width: 300px;
         height: 300px;
-        max-width: 300px;
+        max-width: 70vw;
+        max-height: 70vw;
+        aspect-ratio: 1 / 1;
     }
 
     .project-card {
