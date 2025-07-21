@@ -1,4 +1,5 @@
 export const projectDetails = [
+    
     {
         id:crypto.randomUUID(),
         name:'Personal finance app',
@@ -7,6 +8,16 @@ export const projectDetails = [
         url:'https://personal-finance-app-delta.vercel.app',
         github:'https://github.com/Fanushhh/personal-finance-app',
         tech:['NextJS', 'Tailwind CSS', 'Tanstack Query','SSR'],
+    },
+    {
+        id:crypto.randomUUID(),
+        name:'Arena Checker',
+        description:'A modern League of Legends Arena match tracker for monitoring wins/losses across champions with smart search and bulk import features.',
+        url:'https://tourmaline-sable-6485be.netlify.app/',
+        github:'https://github.com/Fanushhh/arena-checker',
+        img:"./public/images/arena-checker-website.png",
+        tech: ['JavaScript', 'HTML5', 'CSS3', 'Local Storage', 'File API'],
+        
     },
     {
         id:crypto.randomUUID(),
@@ -58,16 +69,7 @@ export const projectDetails = [
         tech: ['HTML', 'CSS', 'JavaScript', 'SASS']
         
     },
-    {
-        id:crypto.randomUUID(),
-        name:'Ignite Website',
-        description:'A wonderful website suited for any artist, which includes navigation to different pages as well as custom animations.',
-        url:'https://aquamarine-arithmetic-1b72c1.netlify.app',
-        github:'https://github.com/Fanushhh/ignite-website',
-        img:"./public/images/ignite-website.png",
-        tech: ['HTML', 'CSS', 'React', 'Styled Components', 'Framer Motion', 'React Router'],
-        
-    },
+    
     
     // {
     //     id:crypto.randomUUID(),
