@@ -1129,6 +1129,29 @@ h2 {
     opacity: 1;
 }
 
+/* Tablet Range - Fix hero section spacing and image size */
+@media (min-width: 670px) and (max-width: 1100px) {
+    #hero {
+        padding-top: 50px; /* Increase top padding to prevent title overlap with navbar */
+    }
+    
+    .hero-title {
+        font-size: 3rem; /* Reduce from 4rem to 3rem for better fit */
+        margin-top: 20px; /* Add extra top margin for spacing */
+    }
+    
+    .hero-description {
+        font-size: 1rem; /* Reduce from 1.3rem to 1rem */
+    }
+    
+    .hero-image img {
+        width: 300px;
+        height: 300px;
+        max-width: 300px;
+        max-height: 300px;
+    }
+}
+
 /* Mobile Menu Full Screen */
 @media (max-width: 768px) {
     .mobile-menu {
