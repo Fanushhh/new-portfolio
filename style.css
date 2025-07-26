@@ -199,6 +199,70 @@ nav a:hover::after {
 }
 
 /* Responsive Styles */
+/* Extra large screens */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1600px;
+    }
+    
+    .section-content {
+        max-width: 1400px;
+    }
+    
+    .hero-title {
+        font-size: 5rem;
+    }
+    
+    .hero-description {
+        font-size: 1.5rem;
+    }
+    
+    .hero-image img {
+        width: 500px;
+        height: 500px;
+        max-width: 500px;
+        max-height: 500px;
+    }
+}
+
+/* Large screens */
+@media (min-width: 1201px) and (max-width: 1399px) {
+    .hero-title {
+        font-size: 4.2rem;
+    }
+    
+    .hero-description {
+        font-size: 1.4rem;
+    }
+    
+    .hero-image img {
+        width: 450px;
+        height: 450px;
+        max-width: 450px;
+        max-height: 450px;
+    }
+}
+
+/* Medium screens */
+@media (min-width: 769px) and (max-width: 1200px) {
+    .container {
+        max-width: 1200px;
+    }
+    
+    .section-content {
+        max-width: 1000px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    
+    .learning-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+/* Small tablets and large phones */
 @media (max-width: 768px) {
     nav .nav-links {
         display: none; /* Hide desktop nav links */
@@ -214,6 +278,7 @@ nav a:hover::after {
     }
 }
 
+/* Small phones */
 @media (max-width: 480px) {
     nav ul {
         justify-content: center;
@@ -221,6 +286,57 @@ nav a:hover::after {
 
     .hero-content h1 {
         font-size: 2.5rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .section-content {
+        padding: 0 15px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .learning-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .hero-image img {
+        width: 250px;
+        height: 250px;
+        max-width: 250px;
+        max-height: 250px;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-description {
+        font-size: 0.9rem;
+    }
+    
+    .hero-image img {
+        width: 200px;
+        height: 200px;
+        max-width: 200px;
+        max-height: 200px;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    .section-content {
+        padding: 0 10px;
     }
 }
 
@@ -1391,6 +1507,7 @@ h2 {
     }
 }
 
+/* Mobile carousel improvements for duplicate breakpoint */
 @media (max-width: 480px) {
     nav ul {
         justify-content: center;
@@ -1398,5 +1515,23 @@ h2 {
 
     .hero-content h1 {
         font-size: 2.5rem;
+    }
+    
+    .projects-carousel {
+        touch-action: pan-x;
+    }
+    
+    .carousel-item {
+        min-width: 100%;
+        scroll-snap-align: start;
+    }
+    
+    .carousel-controls {
+        margin-top: 20px;
+    }
+    
+    .carousel-dots {
+        justify-content: center;
+        gap: 8px;
     }
 }

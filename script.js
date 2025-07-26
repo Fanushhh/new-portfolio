@@ -293,6 +293,12 @@ function initCarousel() {
                     isDragging = true;
                     // Prevent default only when we're actually swiping
                     e.preventDefault();
+                    
+                    // Add visual feedback for better responsiveness
+                    carouselTrack.style.transition = 'none';
+                    const currentTranslate = -(currentSlide * 100);
+                    const swipeOffset = ((currentX - startX) / carouselTrack.offsetWidth) * 100;
+                    carouselTrack.style.transform = `translateX(${currentTranslate + swipeOffset}%)`;
                 }
             });
             
@@ -309,6 +315,9 @@ function initCarousel() {
                 const threshold = 50;
                 const maxTime = 300; // Maximum time for a swipe gesture
                 
+                // Reset transition and restore proper position
+                carouselTrack.style.transition = 'transform 0.3s ease';
+                
                 // Only trigger swipe if it's a quick gesture and movement is significant
                 if (timeDiff < maxTime && Math.abs(diff) > threshold) {
                     if (diff > threshold) {
@@ -316,6 +325,9 @@ function initCarousel() {
                     } else if (diff < -threshold) {
                         prevSlide();
                     }
+                } else {
+                    // Snap back to current slide if swipe wasn't significant enough
+                    updateCarousel();
                 }
                 
                 isDragging = false;
