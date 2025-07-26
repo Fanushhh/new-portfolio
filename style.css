@@ -439,7 +439,7 @@ h2 {
     justify-content: space-around;
     text-align: left;
     min-height: 100vh;
-    padding: 0 20px;
+    padding: 100px 20px 0; /* Add top padding to prevent header overlap */
 }
 
 .hero-content {
@@ -1248,7 +1248,8 @@ h2 {
 /* Tablet Range - Fix hero section spacing and image size */
 @media (min-width: 670px) and (max-width: 1200px) {
     #hero {
-        padding-top: 50px; /* Increase top padding to prevent title overlap with navbar */
+        padding-top: 120px; /* Increase top padding to prevent title overlap with navbar */
+        min-height: calc(100vh - 120px); /* Adjust min-height to account for padding */
     }
     
     .hero-title {
